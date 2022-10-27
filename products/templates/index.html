@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<h4 class='m-3'>Django Book</h4>
+<div class='container'>
+    <div class='row'>
+    {% if products|length == 0 %}
+        <h4 class='text-danger'>No data yet</h4>
+    {% endif %}
+
+    {% for product in products %}
+        <div class="card col-sm">
+            <img class="card-img-top" src={{ product.img_url }} alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.barcode }}</p>
+            <a href="#" class="btn btn-primary">{{ product.price }}</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
